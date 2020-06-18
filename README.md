@@ -1,32 +1,13 @@
-### Album_project for multimedia database
+cấu trúc thư mục của hệ thống:
+-application chứa các api mà ứng dụng tương tác với giao diện người dùng
+-cofig chứa các file cấu hình của hệ thống
+-dataprocessing chứa các thành phần tiền xử lý dữ liệu
+    +dataprocessing.crawler chứa thành phần crawl dữ liệu từ web lưu trữ trên hdfs và elasticsearch
+    +dataprocessing.streaming sử dụng spark streaming để xử lý các dữ liệu được crawl về, xây dựng đồ thị tri thức 
+-db_services chứa các thành phần tương tác với database gồm hdfs,neo4j và elasticsearch
+-ER định nghĩa các lớp thực thể và quan hệ trên đồ thị tri thức
+-frontend  chứa giao diện người dùng
+-knowledge_graph chứa thành phần tương tác với đồ thị tri thức, sử dụng neo4j
+-model chứa mô hình trích rút thực thể quan hệ từ văn bản.
 
-
-This README would normally document whatever steps are necessary to get your application up and running.
-
-
-### Step by step guide ###
-
-Install dependencies
-```
-pip install -r requirements.txt
-```
-Download dependencies
-
-download files 
-https://drive.google.com/drive/folders/1sX6CrZVwrn1KTZAaYEnrWwXhrTdZNdKL?usp=sharing
-and copy to app/model_data
-
-Install elasticsearch
-
-https://www.elastic.co/guide/en/elasticsearch/reference/current/zip-windows.html
-
-
-### How to run server ###
-
-```
-python main.py
-```
-
-```
-This application will run at port 8081.
-```
+file requirements.txt chứa các thư viện sử dụng trong project
