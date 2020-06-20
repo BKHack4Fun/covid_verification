@@ -1,3 +1,3 @@
-class Realtionship:
+class Relationship:
     label = "Relationship"
     name = ""
