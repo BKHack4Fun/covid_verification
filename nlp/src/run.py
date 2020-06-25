@@ -57,7 +57,7 @@ BN351: nữ, 46 tuổi, có địa chỉ tại huyện Như Xuân, Thanh Hoá; B
 BN351, 352 từ Kuwait về sân bay Nội Bài trên chuyến bay KU1513 và được cách ly tập trung tại tỉnh Hưng Yên ngay sau khi 
 nhập cảnh. Hiện 2 bệnh nhân đang được cách ly, điều trị tại Bệnh viện Bệnh Nhiệt đới Trung ương cơ sở 2."""
 
-model = load_model(model_dir + 'covid_ner.job')
+model = load_model(model_dir + 'covid_ner_8764w.job')
 BN_list, triplets = extract_info(paragraph=p11, model=model)
 print('patient_list')
 for bn in BN_list:
@@ -65,3 +65,4 @@ for bn in BN_list:
 print('\ntriplets + time')
 for triplet in triplets:
     print(triplet)
+
