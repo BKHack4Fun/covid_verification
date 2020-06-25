@@ -10,16 +10,15 @@ data_dir = my_config.data_path
 
 
 def preprocess_raw(raw_file=None, raw_text=None, save_to=None):
-
-    flags=re.I|re.U
+    flags = re.I | re.U
     text = ''
-    if (raw_file):
+    if raw_file:
         with codecs.open(raw_file, 'r', encoding='utf-8', errors='ignore') as fdata:
             lines = fdata.readlines()
             for line in lines:
-                text += line            
+                text += line
     else:
-        text=raw_text
+        text = raw_text
 
     BNx_y = r'(CA\s{0,2}BỆNH|BỆNH\s{0,2}NHÂN)((\s{0,2}(SỐ|THỨ)\s{0,2})|\s{0,2}|)(([0-9]{1,4})(\s{0,3}-\s{0,3})([0-9]{1,4}))'
     BNx = r'(CA\s{0,2}BỆNH|BỆNH\s{0,2}NHÂN)((\s{0,2}(SỐ|THỨ)\s{0,2})|\s{0,2}|)([0-9]{1,4})'
@@ -29,10 +28,10 @@ def preprocess_raw(raw_file=None, raw_text=None, save_to=None):
     # Ca benh 23 - 24 -> BN23, BN24
     text = re.sub(pattern=BNx_y, repl=r'BN\6, BN\8', string=text, flags=flags)
 
-    #Ca benh thu, ca benh so, benh nhan thu, benh nhan so, benh nhan 34 -> BN34
+    # Ca benh thu, ca benh so, benh nhan thu, benh nhan so, benh nhan 34 -> BN34
     text = re.sub(pattern=BNx, repl=r'BN\5', string=text, flags=flags)
 
-    #Benh nhan, benh nhan, BENH NHAN -> BN
+    # Benh nhan, benh nhan, BENH NHAN -> BN
     text = re.sub(pattern=BN, repl='BN', string=text, flags=flags)
 
     # BN 23 -> BN23
@@ -41,12 +40,13 @@ def preprocess_raw(raw_file=None, raw_text=None, save_to=None):
     #  ; -> .
     text = text.replace(';', '.')
 
-    if (save_to):
+    if save_to:
         with codecs.open(save_to, 'w', encoding='utf-8', errors='ignore') as save_file:
             save_file.write(text)
             print('save data to: ' + str(save_to))
-    
+
     return text
+
 
 if __name__ == "__main__":
     p1 = """THÔNG BÁO VỀ 2 CA BỆNH 259 - 260: BN259 - nữ, 41 tuổi, ở xóm Bàng, thôn Hạ Lôi, 
@@ -68,10 +68,9 @@ if __name__ == "__main__":
     đau rát họng, đau người, được lấy mẫu bệnh phẩm. Xét nghiệm ngày 14/4 cho kết quả dương tính với 
     SARS-CoV-2. Hiện bệnh nhân được cách ly, điều trị tại Bệnh viện Bệnh Nhiệt đới 
     Trung ương cơ sở 2."""
-    
+
     # data_dir = 'c:/Users/T470/OneDrive - Hanoi University of Science and Technology/Documents/ai/practice_code/covid19/data/'
     # txt = preprocess_raw(raw_file=data_dir + 'test_pre.txt', save_to=data_dir + 'test_pred_save.txt')
 
     txt = preprocess_raw(raw_text=p2)
     print(txt)
-

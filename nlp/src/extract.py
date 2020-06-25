@@ -2,8 +2,8 @@
 
 import underthesea
 
-from model.src.predict import ner_sent, load_model, ner_sent2
-from model.src.preprocess_raw import preprocess_raw
+from nlp.src.predict import ner_sent, load_model, ner_sent2
+from nlp.src.preprocess_raw import preprocess_raw
 from config.config import NLPConfig
 
 my_config = NLPConfig()
@@ -22,7 +22,8 @@ def extract_info(paragraph=None, model=None):
     BNid_set = set()
     BNS_bool = False
 
-    for sent in underthesea.sent_tokenize(paragraph.replace(';', '.')):
+    paragraph = preprocess_raw(raw_text=paragraph)
+    for sent in underthesea.sent_tokenize(paragraph):
         relation_list = list()
         cur_time = None
 
@@ -47,17 +48,20 @@ def extract_info(paragraph=None, model=None):
             elif it[1] == 'SEX':
                 for bn in BN_list:
                     if bn[0] == tmp_BNid:
-                        if bn[2] is None: bn[2] = it[0]
+                        if bn[2] is None:
+                            bn[2] = it[0]
                         break
             elif it[1] == 'AGE':
                 for bn in BN_list:
                     if bn[0] == tmp_BNid:
-                        if bn[1] is None: bn[1] = it[0]
+                        if bn[1] is None:
+                            bn[1] = it[0]
                         break
             elif it[1] == 'ADD':
                 for bn in BN_list:
                     if bn[0] == tmp_BNid:
-                        if bn[3] is None: bn[3] = it[0]
+                        if bn[3] is None:
+                            bn[3] = it[0]
                         break
             elif it[1] == 'NAT':
                 for bn in BN_list:
@@ -153,9 +157,8 @@ if __name__ == "__main__":
     BN249 - nam, 55 tuổi, quốc tịch Việt Nam, từ Mỹ quá cảnh tại Hồng Kông, nhập cảnh ngày 22/3, 
     khởi phát bệnh tại Mỹ."""
 
-    # model = load_model(model_dir + 'test_600_TAGS.job')
-
-    BN_list, triplets = extract_info(p9)
+    model = load_model(model_dir + 'covid_ner.job')
+    BN_list, triplets = extract_info(p9, model)
     print('patient_list')
     for bn in BN_list:
         print(bn)
