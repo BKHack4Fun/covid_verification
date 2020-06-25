@@ -14,5 +14,4 @@ index_api = Blueprint('index_api', __name__,
 
 @index_api.route("/", methods=['GET', 'POST'])
 def home():
-
     return "Hello world"

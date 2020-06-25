@@ -83,13 +83,13 @@ def matchRE(r, e):
 
 def matchPE(p, e):
     match = graph.run("match (p:" + p.label + " {name: $p_name })-"
-                                              "[r:" + r.label + " {name:$r_name}]->(e:"
+                                              "[r]->(e:"
                       + e.label +
                       " {name:$e_name})"
                       " return p,r,e",
                       p_name=p.name,
                       e_name=e.name,
-                      r_name=r.name).data()
+                      ).data()
     return match
 
 
@@ -126,8 +126,8 @@ def matchAll_d3format():
     return d3format
 
 
-def matchAll_neo4jformat():
-    match = graph.run("MATCH (n)-[r]-(m) RETURN n,r, m").to_subgraph()
+def match_neo4jformat(query="MATCH (n)-[r]-(m) RETURN n,r, m"):
+    match = graph.run(query).to_subgraph()
     nodes = []
     relastionships = []
     for node in match.nodes:
@@ -170,16 +170,15 @@ def matchAll_neo4jformat():
     }
     return neo4jformat
 
-
-p = Patient()
-p.name = "BN221"
-e = Entity()
-e.label = "Location"
-e.name = "HCM"
-r = Relationship()
-r.name = "đến"
+# p = Patient()
+# p.name = "BN221"
+# e = Entity()
+# e.label = "Location"
+# e.name = "HCM"
+# r = Relationship()
+# r.name = "đến"
 
 # print(matchPR(p, r)[1])
-data = matchAll_neo4jformat()
+# data = matchAll_neo4jformat()
 # print(data)
-print(json.dumps(data))
+# print(json.dumps(data))
