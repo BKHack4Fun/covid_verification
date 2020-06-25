@@ -1,2 +1,3 @@
 .idea
 venv
+frontend/public/node_modules
