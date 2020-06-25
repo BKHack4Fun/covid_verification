@@ -180,7 +180,7 @@ if __name__ == "__main__":
     khởi phát bệnh tại Mỹ."""
 
     model = load_model(model_dir + 'covid_ner.job')
-    BN_list, triplets = extract_info(p1, '3/3/2020', model=model)
+    BN_list, triplets = extract_info(paragraph=p1, time_public='3/3/2020', model=model)
     print('patient_list')
     for bn in BN_list:
         print(bn)

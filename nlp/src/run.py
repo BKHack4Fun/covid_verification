@@ -58,7 +58,7 @@ BN351, 352 từ Kuwait về sân bay Nội Bài trên chuyến bay KU1513 và đ
 nhập cảnh. Hiện 2 bệnh nhân đang được cách ly, điều trị tại Bệnh viện Bệnh Nhiệt đới Trung ương cơ sở 2."""
 
 model = load_model(model_dir + 'covid_ner.job')
-BN_list, triplets = extract_info(p11, model)
+BN_list, triplets = extract_info(paragraph=p11, model=model)
 print('patient_list')
 for bn in BN_list:
     print(bn)
