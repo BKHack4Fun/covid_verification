@@ -126,11 +126,7 @@
 
                 function appendNode() {
                     return node.enter()
-                        .append('g').append("a")
-                        .attr("href", function (d) {
-                            return d.properties.url || "#"
-                        })
-                        .attr("target", "_blank")
+                        .append('g')
                         .attr('class', function (d) {
                             var highlight, i,
                                 classes = 'node',
@@ -377,7 +373,7 @@
 
                 function contains(array, id) {
                     var filter = array.filter(function (elem) {
-                        return elem.id === id;
+                        return elem.id == id;
                     });
 
                     return filter.length > 0;

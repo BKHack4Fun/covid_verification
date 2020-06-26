@@ -6477,7 +6477,7 @@ button.bg-dark:focus {
   }
   .d-sm-flex {
     background-color: white;
-    height: 10rem;
+    height: 5rem;
     display: flex !important;
   }
   .d-sm-inline-flex {

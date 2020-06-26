@@ -111,12 +111,10 @@ $("footer").html(
           `
 )
 function handleVisualize() {
-    let text = $("#text-search").val()
     var request = $.ajax({
         method: "POST",
         url: API.getVisualize,
         data: {
-            content: text
         },
         cache: false,
         statusCode: {
@@ -190,13 +188,11 @@ function handleSubmit() {
     })
     request.done(function (response) {
         console.log(response);
-        // if (response && response.inforRelate) {
-        //     $("#content-relate").html(
-        //         response.inforRelate.map((val, index) => {
-        //             return tabRelate(val.title, val.content, val.link, val.img)
-        //         })
-        //     )
-        // }
+        if (response && response.visualization) {
+            $("#visualize-relate").show()
+            init(response.visualization)
+        }
+           else $("#visualize-relate").hide()
         var v = response.verify
         if (v == 0) {
             $("#isTrue").html(
@@ -207,7 +203,7 @@ function handleSubmit() {
             $("#isTrue").html(
 
                 `<h1 class="text-success text-center">Thông tin chính xác!</h1> `
-                )
+            )
 
         }
         else {
@@ -224,6 +220,7 @@ function handleSubmit() {
 // code here
 $(document).ready(() => {
     // $("#visual-data").html(`<h1>Visualize data</h1>`)
+    $("#visualize-relate").hide()
     $("#button-visual-hide").hide();
     $("#button-visual-show").hide();
     $("#form-submit").submit((e) => {
