@@ -17,7 +17,6 @@ def verifyInfo(doc):
     relationships = []
     entities = []
 
-
     for bn in BN_list:
         p = Patient()
         p.name = bn[0]
@@ -47,6 +46,8 @@ def verifyInfo(doc):
                 continue
             re_verify = 1  # thong tin xac thuc
         else:
+            if re_verify == 0:
+                continue
             if (matchPR(p, r) or matchPE(p, e) or matchRE(r, e)):
                 re_verify = 0  # thong tin chua duoc xac thuc
             else:

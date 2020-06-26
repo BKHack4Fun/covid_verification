@@ -11,8 +11,8 @@ model_dir = my_config.model_path
 data_dir = my_config.data_path
 
 
-def ER_extractor(doc):
-    model = load_model(model_dir + 'covid_ner.job')
-    BN_list, triplets = extract_info(doc, model)
+def ER_extractor(doc,time):
+    model = load_model(model_dir + 'covid_ner_8764w.job')
+    BN_list, triplets = extract_info(paragraph=doc, model=model,time_public=time)
 
     return BN_list, triplets
