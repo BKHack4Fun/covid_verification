@@ -1,6 +1,6 @@
 const API = {
     checkReal: `http://localhost:3001/auth`,
-    getVisualize: `http://localhost:3001/visualize`
+    getVisualize: `http://localhost:8081/visualization/`
 }
 
 function init(data) {

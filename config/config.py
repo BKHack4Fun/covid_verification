@@ -5,7 +5,7 @@ Module for the configurations of system
 
 
 class Neo4jConfig:
-    bolt = "bolt://localhost:11003"
+    bolt = "bolt://localhost:11006"
     username = "thanh"
     password = "thanh"
 

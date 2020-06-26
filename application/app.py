@@ -4,10 +4,13 @@ init app
 
 from elasticsearch import Elasticsearch
 from flask import Flask
+from flask_cors import CORS
+
 from application.index.index import index_api
 from config.config import Config, ElasticSearchConfig
 
 app = Flask(__name__)
+CORS(app)
 
 app.register_blueprint(index_api, static_folder=None)
 

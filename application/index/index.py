@@ -1,6 +1,7 @@
 '''
 for api of app
 '''
+import json
 
 from flask import Blueprint, request, render_template, url_for, redirect
 from flask import jsonify
@@ -18,12 +19,12 @@ index_api = Blueprint('index_api', __name__,
 @index_api.route("/verify", methods=['GET', 'POST'])
 def verify():
     content = request.form['content']
-
     return verifyInfo(content)
 
 
 @index_api.route("/visualization", methods=['GET', 'POST'])
 def visualization():
+    # query = "MATCH p=()-[r:ACTED_IN]->() RETURN p LIMIT 25"
     data = match_neo4jformat()
 
     return data

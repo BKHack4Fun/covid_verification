@@ -17,6 +17,7 @@ def verifyInfo(doc):
     relationships = []
     entities = []
 
+
     for bn in BN_list:
         p = Patient()
         p.name = bn[0]
@@ -51,6 +52,8 @@ def verifyInfo(doc):
             else:
                 re_verify = 2  # không đủ thông tin để xác thực
 
+    if not BN_list or not triplets:
+        re_verify = 2
     if bn_verify == 0:
         verify = 0
     else:

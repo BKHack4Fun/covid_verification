@@ -168,13 +168,13 @@ def matchAll_d3format():
     return d3format
 
 
-def match_neo4jformat(query="MATCH (n)-[r]-(m) RETURN n,r, m"):
+def match_neo4jformat(query="MATCH (n:BN)-[r]-(m) RETURN n,r, m"):
     match = graph.run(query).to_subgraph()
     nodes = []
     relastionships = []
     for node in match.nodes:
         node_fm = {
-            "id": hash(node),
+            "id": str(hash(node)),
             "labels": [str(node.labels)[1:]],
             "properties": dict(node)
         }
@@ -184,14 +184,11 @@ def match_neo4jformat(query="MATCH (n)-[r]-(m) RETURN n,r, m"):
         s, r, e = walk(relationship)
 
         relationship_fm = {
-            "id": hash(relationship),
+            "id": str(hash(relationship)),
             "type": type(relationship).__name__,
-            "startNode": hash(s),
-            "endNode": hash(e),
-            "properties": dict(relationship),
-            "source": hash(s),
-            "target": hash(e),
-            "linknum": 1
+            "startNode": str(hash(s)),
+            "endNode": str(hash(e)),
+            "properties": dict(relationship)
         }
         relastionships.append(relationship_fm)
     neo4jformat = {
