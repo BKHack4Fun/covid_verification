@@ -1,6 +1,7 @@
 const API = {
-    checkReal: `http://localhost:3001/auth`,
-    getVisualize: `http://localhost:3001/visualize`
+    checkReal: `http://192.168.43.150:8081/verify`,
+    getVisualize: `http://192.168.43.150:8081/visualization`
+    // getVisualize: `http://localhost:3001/visualize`
 }
 
 function init(data) {
@@ -112,7 +113,7 @@ $("footer").html(
 function handleVisualize() {
     let text = $("#text-search").val()
     var request = $.ajax({
-        method: "post",
+        method: "POST",
         url: API.getVisualize,
         data: {
             content: text
@@ -126,8 +127,8 @@ function handleVisualize() {
     })
     request.done(function (response) {
         console.log(response);
-        if (response && response.data) {
-            init(response.data)
+        if (response) {
+            init(response)
         }
     });
     request.fail(function (jqXHR, textStatus) {
@@ -172,6 +173,8 @@ function tabRelate(title, content, link, img) {
 }
 function handleSubmit() {
     let text = $("#text-search").val()
+    console.log(text);
+
     var request = $.ajax({
         method: "post",
         url: API.checkReal,
@@ -187,23 +190,29 @@ function handleSubmit() {
     })
     request.done(function (response) {
         console.log(response);
-        if (response && response.inforRelate) {
-            $("#content-relate").html(
-                response.inforRelate.map((val, index) => {
-                    return tabRelate(val.title, val.content, val.link, val.img)
-                })
+        // if (response && response.inforRelate) {
+        //     $("#content-relate").html(
+        //         response.inforRelate.map((val, index) => {
+        //             return tabRelate(val.title, val.content, val.link, val.img)
+        //         })
+        //     )
+        // }
+        var v = response.verify
+        if (v == 0) {
+            $("#isTrue").html(
+                `<h1 class="text-danger text-center">Thông tin không chính xác!!!</h1> `
             )
         }
-        if (response.isTrue) {
+        else if (v == 1) {
             $("#isTrue").html(
-                `<h1 class="text-success text-center">${response.content}</h1>               
-                <h1 >Information Relate</h1>`
-            )
+
+                `<h1 class="text-success text-center">Thông tin chính xác!</h1> `
+                )
+
         }
         else {
             $("#isTrue").html(
-                `<h1 class="text-danger text-center">${response.content}</h1>
-                <h1 >Information Relate</h1>`
+                `<h1 class="text-warning text-center">Không đủ dữ liệu để trả lời!</h1>`
             )
         }
     });
@@ -221,6 +230,6 @@ $(document).ready(() => {
         e.preventDefault()
         handleSubmit()
     })
-    handleVisualize()
+
     $("#button-accept").click(() => handleSubmit())
 })

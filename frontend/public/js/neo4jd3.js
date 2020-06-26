@@ -253,7 +253,7 @@
                         })
                         .html(function (d) {
                             var _icon = icon(d);
-                            return _icon ? '&#x' + _icon : d.id;
+                            return _icon ? '&#x' + _icon : d.properties.name;
                         });
                 }
 
@@ -264,6 +264,12 @@
 
                 function appendRelationship() {
                     return relationship.enter()
+                        .append("a")
+                        .attr("href",function (d){
+                            if(d && d.properties)
+                            return d.properties.link
+                        })
+                        .attr("target","_blank")
                         .append('g')
                         .attr('class', 'relationship')
                         .on('dblclick', function (d) {
