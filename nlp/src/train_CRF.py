@@ -135,7 +135,6 @@ def sent2tokens(sent):
     return [token for token, postag, nertag, label in sent]
 
 
-<<<<<<< HEAD
 def train(data_file, save_to):
     df = pd.read_csv(data_file)
     df = df.fillna('O')
@@ -158,23 +157,3 @@ def train(data_file, save_to):
 
 if __name__ == '__main__':
     train(data_dir + '102p_8764w.csv', model_dir + 'covid_ner_8764w.job')
-=======
-# def train(data_file, save_to):
-#     df = pd.read_csv(data_file)
-#     df = df.fillna('O')
-#
-#     getter = SentenceGetter(df)
-#     sentences = getter.sentences
-#
-#     X = [sent2features(s) for s in sentences]
-#     y = [sent2labels(s) for s in sentences]
-#     crf = CRF(algorithm='lbfgs',
-#               c1=0.1,
-#               c2=0.1,
-#               max_iterations=100,
-#               all_possible_transitions=False)
-#     print('training.......')
-#     crf.fit(X, y)
-#     dump(crf, save_to)
-#     print('save to ' + save_to)
->>>>>>> master

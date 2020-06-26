@@ -41,7 +41,6 @@ từ Mỹ quá cảnh Nhật Bản về Việt Nam trên chuyến bay JL079 ngà
 BN249 - nam, 55 tuổi, quốc tịch Việt Nam, từ Mỹ quá cảnh tại Hồng Kông, nhập cảnh ngày 22/3, 
 khởi phát bệnh tại Mỹ."""
 
-<<<<<<< HEAD
 p10 = """THỦ TƯỚNG CHỈ ĐẠO XỬ LÝ VI PHẠM TRONG SỬ DỤNG KINH PHÍ PHÒNG, CHỐNG DỊCH COVID-19: 
 Xét đề nghị của Bộ Công an về tình hình vi phạm trong việc sử dụng kinh phí chống dịch COVID-19 tại một số địa phương, 
 Thủ tướng Chính phủ Nguyễn Xuân Phúc chỉ đạo Bộ Y tế, Ủy ban nhân dân các tỉnh, thành phố trực thuộc Trung ương khẩn 
@@ -60,11 +59,6 @@ nhập cảnh. Hiện 2 bệnh nhân đang được cách ly, điều trị tạ
 
 model = load_model(model_dir + 'covid_ner_8764w.job')
 BN_list, triplets = extract_info(paragraph=p11, model=model)
-=======
-test1 = "Bệnh nhân 112 ngày 24/3 từ Nga trở về Việt Nam"
-model = load_model(model_dir + 'covid_ner.job')
-BN_list, triplets = extract_info(test1, model)
->>>>>>> master
 print('patient_list')
 for bn in BN_list:
     print(bn)
