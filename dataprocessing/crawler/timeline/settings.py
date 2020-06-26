@@ -91,3 +91,8 @@ ROBOTSTXT_OBEY = True
 
 # my-custom-setting from here
 FEED_EXPORT_ENCODING = 'utf-8'
+ITEM_PIPELINES = {
+    'timeline.pipelines.StopIfSeeDuplicate': 300,
+    'timeline.pipelines.JsonWriterPipeline': 400,
+}
+
