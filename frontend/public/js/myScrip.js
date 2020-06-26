@@ -1,7 +1,8 @@
 const API = {
-    checkReal: `http://192.168.43.150:8081/verify`,
-    getVisualize: `http://192.168.43.150:8081/visualization`
-    // getVisualize: `http://localhost:3001/visualize`
+
+    checkReal: `http://localhost:8081/verify`,
+    getVisualize: `http://localhost:8081/visualization/`
+
 }
 
 function init(data) {
