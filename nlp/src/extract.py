@@ -1,6 +1,7 @@
 # -*- coding: utf8 -*-
 
 import underthesea
+import re
 
 from nlp.src.predict import ner_sent, load_model, ner_sent2
 from nlp.src.preprocess_raw import preprocess_raw
@@ -10,8 +11,11 @@ my_config = NLPConfig()
 model_dir = my_config.model_path
 data_dir = my_config.data_path
 
+re_cur_time = r'hiện(\s{1,3}(tại|nay)|)'
+flags = re.I | re.U
 
-def extract_info(paragraph=None, model=None):
+
+def extract_info(paragraph=None, time_public=None, model=None):
     if not model:
         model = load_model(model_dir + 'covid_ner.job')
 
@@ -81,6 +85,10 @@ def extract_info(paragraph=None, model=None):
                             time_x = it1
                             break
 
+                #  hien tai, hien nay, hien -> time_public
+                if time_x and re.search(pattern=re_cur_time, string=time_x[0], flags=flags) and time_public:
+                    time_x = (str(time_public), 'TIME')
+
                 if BNS_bool:
                     for id in BNid_set:
                         triplets.append([(id, 'BN'), (it[0], 'R'), ('SARS-CoV-2', 'E'), time_x])
@@ -101,10 +109,15 @@ def extract_info(paragraph=None, model=None):
                             time_x = it1
                             break
 
+                #  hien tai, hien nay, hien -> time_public
+                if time_x and re.search(pattern=re_cur_time, string=time_x[0], flags=flags) and time_public:
+                    time_x = (str(time_public), 'TIME')
+
                 if BNS_bool:
                     if len(relation_list) == 0:
+                        tmp_relation = ('trên chuyến bay', 'R') if it[1] == 'FLIGHT' else ('liên quan đến', 'R')
                         for id in BNid_set:
-                            triplets.append([(id, 'BN'), ('do', 'R'), it, time_x])
+                            triplets.append([(id, 'BN'), tmp_relation, it, time_x])
                     else:
                         for id in BNid_set:
                             for relation in relation_list:
@@ -112,7 +125,8 @@ def extract_info(paragraph=None, model=None):
 
                 elif tmp_BNid:
                     if len(relation_list) == 0:
-                        triplets.append([(tmp_BNid, 'BN'), ('do', 'R'), it, time_x])
+                        tmp_relation = ('trên chuyến bay', 'R') if it[1] == 'FLIGHT' else ('liên quan đến', 'R')
+                        triplets.append([(tmp_BNid, 'BN'), tmp_relation, it, time_x])
                     else:
                         for relation in relation_list:
                             triplets.append([(tmp_BNid, 'BN'), relation, it, time_x])
@@ -122,6 +136,14 @@ def extract_info(paragraph=None, model=None):
 
 
 if __name__ == "__main__":
+
+    p1 = """THÔNG BÁO VỀ CA BỆNH 335 (BN335): Bệnh nhân nam, 24 tuổi, có địa chỉ tại xã Khôi Kỳ, 
+    huyện Đại Từ, tỉnh Thái Nguyên, sống và làm việc tại Kuwait 2 năm. Ngày 16/6 bệnh nhân từ Kuwait 
+    (quá cảnh Quatar) về sân bay Tân Sơn Nhất trên chuyến bay H9092 của Bamboo Airways, được cách ly ngay, 
+    lấy mẫu xét nghiệm tại Bệnh viện Bệnh nhiệt đới TP.HCM. Kết quả xét nghiệm ngày 16/6 dương tính với SARS-CoV-2. 
+    Hiện bệnh nhân được cách ly, điều trị tại Bệnh viện Bệnh nhiệt đới TP.HCM. Như vậy, tính đến 6h ngày 17/6, Việt Nam 
+    có tổng cộng 195 ca nhiễm nhập cảnh được cách ly ngay, không có nguy cơ lây ra cộng đồng, đồng thời 
+    ghi nhận 62 ngày liên tiếp không có ca nhiễm trong cộng đồng"""
 
     p3 = """THÔNG BÁO VỀ 2 BN336 - BN342 : 
     BN336: bệnh nhân nam, 29 tuổi, có địa chỉ tại Nghi Lộc, Nghệ An; 
@@ -158,7 +180,7 @@ if __name__ == "__main__":
     khởi phát bệnh tại Mỹ."""
 
     model = load_model(model_dir + 'covid_ner.job')
-    BN_list, triplets = extract_info(p9, model)
+    BN_list, triplets = extract_info(paragraph=p1, time_public='3/3/2020', model=model)
     print('patient_list')
     for bn in BN_list:
         print(bn)

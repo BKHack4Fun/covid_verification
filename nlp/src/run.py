@@ -41,12 +41,34 @@ từ Mỹ quá cảnh Nhật Bản về Việt Nam trên chuyến bay JL079 ngà
 BN249 - nam, 55 tuổi, quốc tịch Việt Nam, từ Mỹ quá cảnh tại Hồng Kông, nhập cảnh ngày 22/3, 
 khởi phát bệnh tại Mỹ."""
 
+<<<<<<< HEAD
+p10 = """THỦ TƯỚNG CHỈ ĐẠO XỬ LÝ VI PHẠM TRONG SỬ DỤNG KINH PHÍ PHÒNG, CHỐNG DỊCH COVID-19: 
+Xét đề nghị của Bộ Công an về tình hình vi phạm trong việc sử dụng kinh phí chống dịch COVID-19 tại một số địa phương, 
+Thủ tướng Chính phủ Nguyễn Xuân Phúc chỉ đạo Bộ Y tế, Ủy ban nhân dân các tỉnh, thành phố trực thuộc Trung ương khẩn 
+trương rà soát, chấn chỉnh, thẩm định lại và thanh tra việc thực hiện các gói thầu mua sắm trang thiết bị y tế, vật 
+tư tiêu hao, thuốc chữa bệnh… phục vụ công tác phòng, chống dịch COVID-19, nhất là các gói thầu mua sắm hệ thống máy 
+xét nghiệm sinh hóa, máy thở, khẩu trang y tế, hóa chất vật tư tiêu hao; nếu có dấu hiệu vi phạm pháp luật thì chuyển 
+hồ sơ, tài liệu cho cơ quan điều tra để điều tra làm rõ, xử lý nghiêm theo quy định của pháp luật."""
+
+p11 = """THÔNG BÁO VỀ 3 CA BỆNH MỚI (BN350 - BN352): 3 ca dương tính này được cách ly ngay sau khi nhập cảnh, không lây 
+ra cộng đồng. BN350: nam, 36 tuổi, có địa chỉ tại huyện Hưng Hà, Thái Bình. Đây là hành khách trên chuyến bay QH9092 từ 
+Kuwait (quá cảnh Qatar) nhập cảnh Sân bay Tân Sơn Nhất ngày 16/6/2020 (trước đó đã ghi nhận 8 trường hợp bệnh COVID-19 
+trên chuyến bay này). Hành khách này được cách ly tập trung, lấy mẫu xét nghiệm tại thị xã Phú Mỹ, Bà Rịa - Vũng Tàu; 
+BN351: nữ, 46 tuổi, có địa chỉ tại huyện Như Xuân, Thanh Hoá; BN352: nữ, 30 tuổi, có địa chỉ tại huyện Cẩm Thuỷ, Thanh Hoá. 
+BN351, 352 từ Kuwait về sân bay Nội Bài trên chuyến bay KU1513 và được cách ly tập trung tại tỉnh Hưng Yên ngay sau khi 
+nhập cảnh. Hiện 2 bệnh nhân đang được cách ly, điều trị tại Bệnh viện Bệnh Nhiệt đới Trung ương cơ sở 2."""
+
+model = load_model(model_dir + 'covid_ner_8764w.job')
+BN_list, triplets = extract_info(paragraph=p11, model=model)
+=======
 test1 = "Bệnh nhân 112 ngày 24/3 từ Nga trở về Việt Nam"
 model = load_model(model_dir + 'covid_ner.job')
 BN_list, triplets = extract_info(test1, model)
+>>>>>>> master
 print('patient_list')
 for bn in BN_list:
     print(bn)
 print('\ntriplets + time')
 for triplet in triplets:
     print(triplet)
+
