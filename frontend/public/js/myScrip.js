@@ -1,7 +1,7 @@
 const API = {
 
     checkReal: `http://localhost:8081/verify`,
-    getVisualize: `http://localhost:8081/visualization/`
+    getVisualize: `http://localhost:8081/visualization`
 
 }
 

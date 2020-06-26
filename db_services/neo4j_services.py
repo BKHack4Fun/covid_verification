@@ -245,7 +245,7 @@ def generateOrName(es, name_e):
 # p2 = Patient()
 # p2.name ="fsdaf"
 #
-print(generateOrName([], "p"))
+# print(generateOrName([], "p"))
 
 doc = """THÔNG BÁO VỀ CA BỆNH 223-227: BN223: nữ, 29 tuổi, địa chỉ: Hải Hậu, Nam Định, 
 chăm sóc người thân tại Khoa Phục hồi chức năng, Bệnh viện Bạch Mai từ 11/3. 
@@ -258,7 +258,10 @@ chuyến bay SU290 ghế 50D ngày 25/3/2020 và được cách ly tại Đại 
 BN226: nam, 22 tuổi, về nước cùng chuyến bay với BN 212 ngày 27/3 và được cách ly tại Trường Văn 
 hóa Nghệ thuật Vĩnh Phúc; BN227: nam, 31 tuổi, là con của BN209, có tiếp xúc gần tại gia đình trong 
 khoảng thời gian từ 16-25/3."""
+doc2 ="Bệnh viện Việt Nam - Thuỵ Điển Uông Bí Quảng Ninh cho hay, tính đến 16h ngày 09/02/2020, Bệnh viện có tiếp nhận 9 trường hợp người bệnh nghi ngờ nhiễm nCoV. Trong đó 8/9 ca đã có kết quả âm tính, 1 trường hợp có yếu tố nghi ngờ đã được cách ly theo dõi."
+doc3 =  "THÔNG BÁO VỀ CÁC CA BỆNH 50, 51, 52, 53: Bệnh nhân thứ 50 (BN50 là nam, 50 tuổi, địa chỉ phố Núi Trúc, Ba Đình, Hà Nội. Bệnh nhân đi công tác tại Paris và về nước ngày 9/3, hiện đang được cách ly tại Bệnh viện Bệnh nhiệt đới trung ương cơ sở Đông Anh, cơ sở Đông Anh, tình trạng sức khoẻ ổn định; Bệnh nhân thứ 51 (BN51) là nữ, 22 tuổi, địa chỉ Xuân Đỉnh, Bắc Từ Liêm, Hà Nội, là du học sinh ở châu Âu, từ ngày 23/02/2020– 12/3/2020 có đi qua nhiều nước, ngày 13/3 bay về Nội Bài trên chuyến bay QR968, hiện đang được cách ly tại Bệnh viện Bệnh nhiệt đới trung ương cơ sở Đông Anh, tình trạng sức khoẻ ổn định; Bệnh nhân thứ 52 (BN52) là nữ, 24 tuổi, địa chỉ Khu 4B, phường Hồng Hải, Hạ Long, Quảng Ninh. Bệnh nhân là hành khách trên chuyến bay ngày từ London về Việt Nam ngày 9/3 và bắt taxi thẳng về nhà tại Hạ Long. Hiện bệnh nhân đang được cách ly tại bệnh viện dã chiến cơ sở số 2 tại tỉnh Quảng Ninh, tình trạng sức khoẻ ổn định; Bệnh nhân thứ 53 (BN53) là nam, 53 tuổi, quốc tịch Cộng hoà Czech, tiền sử chưa ghi nhận bất thường, có tiếp xúc với người Ý. Ngày 10/3/2020, nhập cảnh vào Cảng hàng không quốc tế Tân Sơn Nhất trên chuyến bay QR970, quá cảnh tại sân bay Doha (Quatar). Sau khi vào Việt Nam, bệnh nhân lưu trú tại Quận 1, TP.HCM."
 
+update_graph(doc3,"https://ncov.moh.gov.vn/web/guest/dong-thoi-gian")
 # update_graph(doc,"http://google.com")
 # p = Patient()
 # p.name = "BN221"
