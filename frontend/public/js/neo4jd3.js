@@ -92,7 +92,6 @@
                         .attr('class', 'neo4jd3-info');
                 }
 
-                
                 function appendInfoElement(cls, isNode, property, value) {
                     var elem = info.append('a');
 
