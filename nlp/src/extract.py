@@ -115,7 +115,7 @@ def extract_info(paragraph=None, time_public=None, model=None):
 
                 if BNS_bool:
                     if len(relation_list) == 0:
-                        tmp_relation = ('trên chuyến bay', 'R') if it[1] == 'FLIGHT' else ('do', 'R')
+                        tmp_relation = ('trên chuyến bay', 'R') if it[1] == 'FLIGHT' else ('liên quan đến', 'R')
                         for id in BNid_set:
                             triplets.append([(id, 'BN'), tmp_relation, it, time_x])
                     else:
@@ -125,7 +125,7 @@ def extract_info(paragraph=None, time_public=None, model=None):
 
                 elif tmp_BNid:
                     if len(relation_list) == 0:
-                        tmp_relation = ('trên chuyến bay', 'R') if it[1] == 'FLIGHT' else ('do', 'R')
+                        tmp_relation = ('trên chuyến bay', 'R') if it[1] == 'FLIGHT' else ('liên quan đến', 'R')
                         triplets.append([(tmp_BNid, 'BN'), tmp_relation, it, time_x])
                     else:
                         for relation in relation_list:
