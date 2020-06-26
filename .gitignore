@@ -1,3 +1,8 @@
 .idea
 venv
+<<<<<<< HEAD
 frontend/public/node_modules
+=======
+/.vscode/
+/_pycache_/
+>>>>>>> a035f37fbcbd5a1b48e55f1e8bb3593d931d7814

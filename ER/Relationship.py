@@ -1,3 +1,5 @@
 class Relationship:
     label = "Relationship"
-    name = ""
+    # name = ""
+    time=''
+    link=''

@@ -1,5 +1,6 @@
 """
 Module for the configurations of system
+<<<<<<< HEAD
 """
 
 
@@ -17,3 +18,10 @@ class ElasticSearchConfig:
     ELASTICSEARCH_IP_ADDRESS = 'localhost'
     ELASTICSEARCH_PORT = 9200
     INDEX_COVID = 'covid_cases'
+
+
+
+class NLPConfig:
+    model_path = "E:/HUST/bigdata/covid_verification/nlp/model/"
+    data_path = "E:/HUST/bigdata/covid_verification/nlp/data/"
+
