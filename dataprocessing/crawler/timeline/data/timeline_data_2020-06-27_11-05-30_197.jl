@@ -1,0 +1,1 @@
+{"time": "09:17 10/02/2020", "content": "Bộ Y tế phối hợp với Bộ Ngoại giao, Bộ Giao thông vận tải, Bộ Giáo dục và Đào tạo, các Bộ, ngành, cơ quan tổ chức đón Đoàn lưu học sinh Việt Nam từ Vũ Hán, Trung Quốc trở về bằng đường hàng không qua Sân bay Quốc tế Vân Đồn và đưa về cách ly theo quy định.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

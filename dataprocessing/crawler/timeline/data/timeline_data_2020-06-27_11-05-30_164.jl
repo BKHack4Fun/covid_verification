@@ -1,0 +1,1 @@
+{"time": "11:41 26/02/2020", "content": "Ông N.V.V (trú tại xã Sơn Lôi, Bình Xuyên, Vĩnh Phúc) - bệnh nhân mắc COVID-19 cuối cùng trong 16 ca đã được chữa khỏi, xuất viện sáng nay. Như vậy, gia đình 4 người cùng mắc COVID-19 ở Vĩnh Phúc đều khỏi bệnh, sắp đoàn tụ.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

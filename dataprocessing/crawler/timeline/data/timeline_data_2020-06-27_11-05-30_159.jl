@@ -1,0 +1,1 @@
+{"time": "12:25 28/02/2020", "content": "Cơ quan kiểm soát và phòng ngừa dịch bệnh Mỹ (CDC) đã bỏ Việt Nam ra khỏi các điểm đến có nguy cơ lây lan dịch bệnh COVID-19 trong cộng đồng. Hiện chỉ còn 3 điểm đến được CDC khuyến cáo là Singapore, Thái Lan, Đài Loan.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

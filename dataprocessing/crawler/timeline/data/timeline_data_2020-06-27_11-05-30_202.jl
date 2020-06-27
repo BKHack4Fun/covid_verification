@@ -1,0 +1,1 @@
+{"time": "10:27 08/02/2020", "content": "Bộ Y tế chính thức ra mắt trang tin điện tử về dịch bệnh viêm đường hô hấp cấp do chủng mới của virus Corona gây ra (nCoV) trên Cổng Thông tin điện tử Bộ Y tế có tên miền https://ncov.moh.gov.vn/ và app (ứng dụng) thông tin về dịch bệnh nCoV có tên là SỨC KHỎE VIỆT NAM.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

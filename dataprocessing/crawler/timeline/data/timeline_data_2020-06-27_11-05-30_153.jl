@@ -1,0 +1,1 @@
+{"time": "21:22 04/03/2020", "content": "HÀ NỘI: Cô giáo 39 tuổi ở quận Bắc Từ Liêm nghi bị nhiễm COVI-19 vì đã tham gia hội thảo ở Italia, trở về nước có biểu hiện sốt, ho, tức ngực. Ngày 4/3, xét nghiệm cho thấy kết quả âm tính.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

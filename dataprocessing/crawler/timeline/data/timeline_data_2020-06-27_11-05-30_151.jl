@@ -1,0 +1,1 @@
+{"time": "14:39 05/03/2020", "content": "Cục Quản lý Khám, chữa bệnh, Bộ Y tể, Tiểu ban Điều trị- Ban chỉ đạo Quốc gia phòng chống COVID -19 đã ra mắt \"Trung tâm quản lý, điều hành trực tuyến hỗ trợ chuyên môn chẩn đoán, điều trị COVID - 19\".", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

@@ -1,0 +1,1 @@
+{"time": "14:38 18/02/2020", "content": "Ông Đào Đình Cường, Giám đốc Trung tâm Kiểm soát bệnh tật tỉnh Lạng Sơn cho biết, sáng nay, 120 trường hợp được cách ly từ ngày 3/2/2020 tại địa phương, đã được trở về sinh hoạt tại cộng đồng sau khi hoàn tất thời gian cách ly. Những người này hiện có sức khỏe tốt.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

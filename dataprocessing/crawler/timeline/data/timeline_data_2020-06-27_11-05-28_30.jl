@@ -1,0 +1,1 @@
+{"time": "10:01 25/04/2020", "content": "Thủ tướng Chính phủ vừa có Chỉ thị 19/CT-TTg về tiếp tục thực hiện các biện pháp phòng, chống dịch COVID-19 trong tình hình mới, sau 3 tuần thực hiện cách ly toàn xã hội theo Chỉ thị số 16/CT-TTg ngày 31/3/2020.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian/"}

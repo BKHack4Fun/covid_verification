@@ -1,0 +1,1 @@
+{"time": "15:37 07/02/2020", "content": "Cơ quan Hợp tác Quốc tế Nhật Bản (JICA) đã quyết định chuyển lô hàng viện trợ tới Viện Vệ sinh Dịch tễ Trung ương (NIHE), để chung tay cùng Việt Nam ứng phó với dịch bệnh nCoV", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

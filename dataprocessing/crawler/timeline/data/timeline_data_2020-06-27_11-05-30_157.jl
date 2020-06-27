@@ -1,0 +1,1 @@
+{"time": "10:20 29/02/2020", "content": "Tổ chức Y tế thế giới (WHO) đã nâng mức cảnh báo lây nhiễm toàn cầu đối với dịch COVID-19 lên mức \"rất cao\" sau khi ghi nhận dịch bệnh tại gần 60 quốc gia và vùng lãnh thổ trên toàn thế giới.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

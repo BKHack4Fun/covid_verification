@@ -1,0 +1,1 @@
+{"time": "20:54 26/02/2020", "content": "Bộ Y tế công bố hết dịch COVID-19 tại Khánh Hòa: Cuối ngày 26/2, Thứ trưởng Bộ Y tế Đỗ Xuân Tuyên đã ký Quyết định 648/QĐ-BYT về việc công bố hết dịch COVID-19 trên địa bàn tỉnh Khánh Hòa. Quyết định có hiệu lực từ ngày 26/2.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

@@ -1,0 +1,1 @@
+{"time": "11:03 24/02/2020", "content": "Tại cuộc họp Ban Chỉ đạo Quốc gia phòng chống dịch COVID-19 sáng 24/2, đại diện Bộ Y tế chính thức cho biết từ 3 giờ chiều qua, 23/2, tất cả các cửa khẩu trên toàn quốc đã áp dụng khai báo y tế với du khách từ Hàn Quốc nhập cảnh vào Việt Nam.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

@@ -1,0 +1,1 @@
+{"time": "11:09 09/02/2020", "content": "Thông tin từ Viện vệ sinh dịch tễ Trung ương, tính đến nay viện đã xét nghiệm 469 trường hợp, có 9 mẫu dương tính, 389 người âm tính, hiện còn 71 trường hợp đang chờ kết quả.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}
