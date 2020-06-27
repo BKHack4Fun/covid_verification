@@ -14,6 +14,6 @@ class NcovSpider(scrapy.Spider):
             link = response.request.url.split('?')[0]
             yield {'time': time, 'content': content, 'link': link}
 
-        # next_page = response.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div/div/div[1]/div/div/section/div/div/div/div[4]/ul/li[2]/a")
-        # yield from response.follow_all(next_page)
+        next_page = response.xpath("/html/body/div[1]/div/div/div[2]/div/div/div/div/div/div/div[1]/div/div/section/div/div/div/div[4]/ul/li[2]/a")
+        yield from response.follow_all(next_page)
 
