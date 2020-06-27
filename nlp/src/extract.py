@@ -38,7 +38,7 @@ def extract_info(paragraph=None, time_public=None, model=None):
             idx += 1
             if it[1] == 'BN' and it[0] == 'BN':
                 pass
-            elif it[1] == 'BN' and len(relation_list) == 0:
+            elif it[1] == 'BN' and 'BN' in it[0] and len(relation_list) == 0:
                 tmp_BNid = it[0]
                 if it[0] not in BNid_set:
                     # print('new ' + str(tmp_BNid))
@@ -47,7 +47,7 @@ def extract_info(paragraph=None, time_public=None, model=None):
                     myBN = [None] * 5
                     myBN[0] = tmp_BNid
                     BN_list.append(myBN)
-            elif it[1] == 'BNS':
+            elif it[1] == 'BNS' and 'BN' in it[0]:
                 BNS_bool = True
             elif it[1] == 'SEX':
                 for bn in BN_list:
@@ -179,8 +179,26 @@ if __name__ == "__main__":
     BN249 - nam, 55 tuổi, quốc tịch Việt Nam, từ Mỹ quá cảnh tại Hồng Kông, nhập cảnh ngày 22/3, 
     khởi phát bệnh tại Mỹ."""
 
-    model = load_model(model_dir + 'covid_ner.job')
-    BN_list, triplets = extract_info(paragraph=p1, time_public='3/3/2020', model=model)
+    p10 = """THÔNG BÁO VỀ CA BỆNH 124-134: BN124: nam, 52 tuổi, quốc tịch Brazil, trú tại Quận 2, TP. Hồ Chí Minh. 
+    Ngày 14/3/2020, bệnh nhân có đến quán Bar Buddha; BN125: nữ, quốc tịch Nam Phi, 22 tuổi, trú tại Quận 7, TPHCM, 
+    đã từng từng đến quán Bar Buddha từ 21h30 ngày 14/3/2020 đến 03h00 ngày 15/3/2020; BN126: nam, quốc tịch Nam Phi, 
+    28 tuổi, trú tại Quận 7, TP Hồ Chí Minh, là bạn với BN125; BN127: nam, 23 tuổi, trú tại Quận Tân Phú, 
+    TP. Hồ Chí Minh, là nhân viên phục vụ bàn (theo ca 21h00 - 04h00) tại quán Bar Buddha - Quận 2; BN128: 
+    nam, 20 tuổi ở Lê Chân, TP. Hải Phòng, là du học sinh tại Anh, nhập cảnh về Nội Bài ngày 20/03/2020 trên 
+    chuyến bay VN0054. BN129: nam, 20 tuổi ở Nghĩa Tân, Hà Nội, là du học sinh tại Anh, nhập cảnh về Nội Bài 
+    ngày 20/03/2020 trên chuyến bay VN0054; BN130: nam, 30 tuổi, địa chỉ ở Quận Bình Chánh, TP. Hồ Chí Minh, 
+    là du khách từ Tây Ban Nha, quá cảnh tại Nga và về Nội Bài ngày 22/03/2020 trên chuyến bay SU290; 
+    BN131: nam, 23 tuổi, địa chỉ ở Quận Bình Chánh, TP. Hồ Chí Minh, là du khách từ Tây Ban Nha, quá cảnh tại Nga 
+    và về Nội Bài ngày 22/03/2020 trên chuyến bay SU290; BN132: nữ, 25 tuổi, địa chỉ ở Quận Long Biên, Hà Nội, 
+    là du khách từ Tây Ban Nha, quá cảnh tại Nga và về Nội Bài ngày 22/03/2020 trên chuyến bay SU290; 
+    BN133: nữ, 66 tuổi ở Tân Phong, Lai Châu, trong tháng 3/2020 có đến Bệnh viện Bạch Mai điều trị bệnh và 
+    22/03/2020 trở về nhà tại tỉnh Lai Châu; BN134: nam, 10 tuổi ở Thạch Thất, Hà Nội, là du khách từ nước ngoài, 
+    nhập cảnh về Nội Bài ngày 18/03/2020 trên chuyến bay SU290."""
+
+    p11 = """bệnh nhân 23 ở Pháp ngày 20/12"""
+
+    model = load_model(model_dir + 'covid_ner_8764w.job')
+    BN_list, triplets = extract_info(paragraph=p11, time_public='3/3/2020', model=model)
     print('patient_list')
     for bn in BN_list:
         print(bn)
