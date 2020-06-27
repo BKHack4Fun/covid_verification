@@ -82,10 +82,11 @@ def update_graph(doc, time, link):
 
 
 def matchPRE(p, r, e):
-    match = graph.run("match (p:" + p.label + " {name: $p_name })-"
+    match = graph.run("match (p:" + p.label + " )-"
                                               "[r:" + r.label + " ]->(e:"
                       + e.label +
-                      " {name:$e_name})"
+                      " )"
+                      " where toLower(p.name) = toLower($p_name) and toLower(e.name) = toLower($e_name) "
                       " return p,r,e",
                       p_name=p.name,
                       e_name=e.name).data()
@@ -93,16 +94,18 @@ def matchPRE(p, r, e):
 
 
 def matchPR(p, r):
-    match = graph.run("match (p:" + p.label + " {name: $p_name })-"
-                                              "[r:" + r.label + " ]->(e)"
-                                                                " return p,r,e",
+    match = graph.run("match (p:"
+                      + p.label + " )-"
+                                  "[r:" + r.label + " ]->(e)"
+                                                    " where toLower(p.name) = toLower($p_name)"
+                                                    " return p,r,e",
                       p_name=p.name).data()
     return match
 
 
 # return properties of patient
 def matchP(p):
-    match = graph.run("match (p:BN {name: $p_name }) return p",
+    match = graph.run("match (p:BN ) where toLower(p.name) = toLower($p_name) return p",
                       p_name=p.name,
                       ).evaluate()
     if match is None:
@@ -118,17 +121,19 @@ def matchRE(r, e):
     match = graph.run("match (p)-"
                       "[r:" + r.label + " ]->(e:"
                       + e.label +
-                      " {name:$e_name})"
+                      " )"
+                      " where toLower(e.name) = toLower($e_name)"
                       " return p,r,e",
                       e_name=e.name).data()
     return match
 
 
 def matchPE(p, e):
-    match = graph.run("match (p:" + p.label + " {name: $p_name })"
+    match = graph.run("match (p:" + p.label + " )"
                                               ",(e:"
                       + e.label +
-                      " {name:$e_name})"
+                      " )"
+                      " where toLower(e.name) = toLower($e_name) and toLower(p.name) = toLower($p_name)"
                       " return p,e",
                       p_name=p.name,
                       e_name=e.name,
@@ -173,6 +178,9 @@ def match_neo4jformat(query="MATCH (n:BN)-[r]-(m) RETURN n,r, m"):
     match = graph.run(query).to_subgraph()
     nodes = []
     relastionships = []
+    # print(match)
+    if not match:
+        return None
     for node in match.nodes:
         node_fm = {
             "id": str(hash(node)),
@@ -180,6 +188,7 @@ def match_neo4jformat(query="MATCH (n:BN)-[r]-(m) RETURN n,r, m"):
             "properties": dict(node)
         }
         nodes.append(node_fm)
+
     for relationship in match.relationships:
         # print(dict(relationship))
         s, r, e = walk(relationship)
@@ -233,9 +242,9 @@ def generateOrName(es, name_e):
     s = ''
     if not es:
         return None
-    name = name_e + ".name = '"
+    name = "toLower(" + name_e + ".name) = toLower('"
     for i in es:
-        s += name + i.name + "' or "
+        s += name + i.name + "') or "
 
     return "(" + s[:-3] + ") "
 
@@ -261,7 +270,7 @@ hóa Nghệ thuật Vĩnh Phúc; BN227: nam, 31 tuổi, là con của BN209, có
 khoảng thời gian từ 16-25/3."""
 doc2 = "Bệnh viện Việt Nam - Thuỵ Điển Uông Bí Quảng Ninh cho hay, tính đến 16h ngày 09/02/2020, Bệnh viện có tiếp nhận 9 trường hợp người bệnh nghi ngờ nhiễm nCoV. Trong đó 8/9 ca đã có kết quả âm tính, 1 trường hợp có yếu tố nghi ngờ đã được cách ly theo dõi."
 doc3 = "THÔNG BÁO VỀ CÁC CA BỆNH 50, 51, 52, 53: Bệnh nhân thứ 50 (BN50 là nam, 50 tuổi, địa chỉ phố Núi Trúc, Ba Đình, Hà Nội. Bệnh nhân đi công tác tại Paris và về nước ngày 9/3, hiện đang được cách ly tại Bệnh viện Bệnh nhiệt đới trung ương cơ sở Đông Anh, cơ sở Đông Anh, tình trạng sức khoẻ ổn định; Bệnh nhân thứ 51 (BN51) là nữ, 22 tuổi, địa chỉ Xuân Đỉnh, Bắc Từ Liêm, Hà Nội, là du học sinh ở châu Âu, từ ngày 23/02/2020– 12/3/2020 có đi qua nhiều nước, ngày 13/3 bay về Nội Bài trên chuyến bay QR968, hiện đang được cách ly tại Bệnh viện Bệnh nhiệt đới trung ương cơ sở Đông Anh, tình trạng sức khoẻ ổn định; Bệnh nhân thứ 52 (BN52) là nữ, 24 tuổi, địa chỉ Khu 4B, phường Hồng Hải, Hạ Long, Quảng Ninh. Bệnh nhân là hành khách trên chuyến bay ngày từ London về Việt Nam ngày 9/3 và bắt taxi thẳng về nhà tại Hạ Long. Hiện bệnh nhân đang được cách ly tại bệnh viện dã chiến cơ sở số 2 tại tỉnh Quảng Ninh, tình trạng sức khoẻ ổn định; Bệnh nhân thứ 53 (BN53) là nam, 53 tuổi, quốc tịch Cộng hoà Czech, tiền sử chưa ghi nhận bất thường, có tiếp xúc với người Ý. Ngày 10/3/2020, nhập cảnh vào Cảng hàng không quốc tế Tân Sơn Nhất trên chuyến bay QR970, quá cảnh tại sân bay Doha (Quatar). Sau khi vào Việt Nam, bệnh nhân lưu trú tại Quận 1, TP.HCM."
-p13= "THÔNG BÁO VỀ CA BỆNH 124-134: BN124: nam, 52 tuổi, quốc tịch Brazil, trú tại Quận 2, TP. Hồ Chí Minh. Ngày 14/3/2020, bệnh nhân có đến quán Bar Buddha; BN125: nữ, quốc tịch Nam Phi, 22 tuổi, trú tại Quận 7, TPHCM, đã từng từng đến quán Bar Buddha từ 21h30 ngày 14/3/2020 đến 03h00 ngày 15/3/2020; BN126: nam, quốc tịch Nam Phi, 28 tuổi, trú tại Quận 7, TP Hồ Chí Minh, là bạn với BN125; BN127: nam, 23 tuổi, trú tại Quận Tân Phú, TP. Hồ Chí Minh, là nhân viên phục vụ bàn (theo ca 21h00 - 04h00) tại quán Bar Buddha - Quận 2; BN128: nam, 20 tuổi ở Lê Chân, TP. Hải Phòng, là du học sinh tại Anh, nhập cảnh về Nội Bài ngày 20/03/2020 trên chuyến bay VN0054.  BN129: nam, 20 tuổi ở Nghĩa Tân, Hà Nội, là du học sinh tại Anh, nhập cảnh về Nội Bài ngày 20/03/2020 trên chuyến bay VN0054; BN130: nam, 30 tuổi, địa chỉ ở Quận Bình Chánh, TP. Hồ Chí Minh, là du khách từ Tây Ban Nha, quá cảnh tại Nga và về Nội Bài ngày 22/03/2020 trên chuyến bay SU290; BN131: nam, 23 tuổi, địa chỉ ở Quận Bình Chánh, TP. Hồ Chí Minh, là du khách từ Tây Ban Nha, quá cảnh tại Nga và về Nội Bài ngày 22/03/2020 trên chuyến bay SU290; BN132: nữ, 25 tuổi, địa chỉ ở Quận Long Biên, Hà Nội, là du khách từ Tây Ban Nha, quá cảnh tại Nga và về Nội Bài ngày 22/03/2020 trên chuyến bay SU290; BN133: nữ, 66 tuổi ở Tân Phong, Lai Châu, trong tháng 3/2020 có đến Bệnh viện Bạch Mai điều trị bệnh và 22/03/2020 trở về nhà tại tỉnh Lai Châu; BN134: nam, 10 tuổi ở Thạch Thất, Hà Nội, là du khách từ nước ngoài, nhập cảnh về Nội Bài ngày 18/03/2020 trên chuyến bay SU290."
+p13 = "THÔNG BÁO VỀ CA BỆNH 124-134: BN124: nam, 52 tuổi, quốc tịch Brazil, trú tại Quận 2, TP. Hồ Chí Minh. Ngày 14/3/2020, bệnh nhân có đến quán Bar Buddha; BN125: nữ, quốc tịch Nam Phi, 22 tuổi, trú tại Quận 7, TPHCM, đã từng từng đến quán Bar Buddha từ 21h30 ngày 14/3/2020 đến 03h00 ngày 15/3/2020; BN126: nam, quốc tịch Nam Phi, 28 tuổi, trú tại Quận 7, TP Hồ Chí Minh, là bạn với BN125; BN127: nam, 23 tuổi, trú tại Quận Tân Phú, TP. Hồ Chí Minh, là nhân viên phục vụ bàn (theo ca 21h00 - 04h00) tại quán Bar Buddha - Quận 2; BN128: nam, 20 tuổi ở Lê Chân, TP. Hải Phòng, là du học sinh tại Anh, nhập cảnh về Nội Bài ngày 20/03/2020 trên chuyến bay VN0054.  BN129: nam, 20 tuổi ở Nghĩa Tân, Hà Nội, là du học sinh tại Anh, nhập cảnh về Nội Bài ngày 20/03/2020 trên chuyến bay VN0054; BN130: nam, 30 tuổi, địa chỉ ở Quận Bình Chánh, TP. Hồ Chí Minh, là du khách từ Tây Ban Nha, quá cảnh tại Nga và về Nội Bài ngày 22/03/2020 trên chuyến bay SU290; BN131: nam, 23 tuổi, địa chỉ ở Quận Bình Chánh, TP. Hồ Chí Minh, là du khách từ Tây Ban Nha, quá cảnh tại Nga và về Nội Bài ngày 22/03/2020 trên chuyến bay SU290; BN132: nữ, 25 tuổi, địa chỉ ở Quận Long Biên, Hà Nội, là du khách từ Tây Ban Nha, quá cảnh tại Nga và về Nội Bài ngày 22/03/2020 trên chuyến bay SU290; BN133: nữ, 66 tuổi ở Tân Phong, Lai Châu, trong tháng 3/2020 có đến Bệnh viện Bạch Mai điều trị bệnh và 22/03/2020 trở về nhà tại tỉnh Lai Châu; BN134: nam, 10 tuổi ở Thạch Thất, Hà Nội, là du khách từ nước ngoài, nhập cảnh về Nội Bài ngày 18/03/2020 trên chuyến bay SU290."
 p14 = "THÔNG BÁO VỀ CA BỆNH 124-134: BN124: nam, 52 tuổi, quốc tịch Brazil, trú tại Quận 2, TP. Hồ Chí Minh. Ngày 14/3/2020, bệnh nhân có đến quán Bar Buddha; BN125: nữ, quốc tịch Nam Phi, 22 tuổi, trú tại Quận 7, TPHCM, đã từng từng đến quán Bar Buddha từ 21h30 ngày 14/3/2020 đến 03h00 ngày 15/3/2020; BN126: nam, quốc tịch Nam Phi, 28 tuổi, trú tại Quận 7, TP Hồ Chí Minh, là bạn với BN125; BN127: nam, 23 tuổi, trú tại Quận Tân Phú, TP. Hồ Chí Minh, là nhân viên phục vụ bàn (theo ca 21h00 - 04h00) tại quán Bar Buddha - Quận 2; BN128: nam, 20 tuổi ở Lê Chân, TP. Hải Phòng, là du học sinh tại Anh, nhập cảnh về Nội Bài ngày 20/03/2020 trên chuyến bay VN0054.  BN129: nam, 20 tuổi ở Nghĩa Tân, Hà Nội, là du học sinh tại Anh, nhập cảnh về Nội Bài ngày 20/03/2020 trên chuyến bay VN0054; BN130: nam, 30 tuổi, địa chỉ ở Quận Bình Chánh, TP. Hồ Chí Minh, là du khách từ Tây Ban Nha, quá cảnh tại Nga và về Nội Bài ngày 22/03/2020 trên chuyến bay SU290; BN131: nam, 23 tuổi, địa chỉ ở Quận Bình Chánh, TP. Hồ Chí Minh, là du khách từ Tây Ban Nha, quá cảnh tại Nga và về Nội Bài ngày 22/03/2020 trên chuyến bay SU290; BN132: nữ, 25 tuổi, địa chỉ ở Quận Long Biên, Hà Nội, là du khách từ Tây Ban Nha, quá cảnh tại Nga và về Nội Bài ngày 22/03/2020 trên chuyến bay SU290; BN133: nữ, 66 tuổi ở Tân Phong, Lai Châu, trong tháng 3/2020 có đến Bệnh viện Bạch Mai điều trị bệnh và 22/03/2020 trở về nhà tại tỉnh Lai Châu; BN134: nam, 10 tuổi ở Thạch Thất, Hà Nội, là du khách từ nước ngoài, nhập cảnh về Nội Bài ngày 18/03/2020 trên chuyến bay SU290."
 # update_graph(doc=p14,time="25/3/2020",link="https://ncov.moh.gov.vn/web/guest/dong-thoi-gian")
 # update_graph(doc,"http://google.com")

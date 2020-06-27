@@ -6,10 +6,14 @@ from ER.Patient import Patient
 from ER.Relationship import Relationship
 from db_services.neo4j_services import matchP, matchPRE, matchPR, matchPE, matchRE, involve_info
 from nlp.ERextractor import ER_extractor
+from datetime import datetime
 
 
 def verifyInfo(doc):
-    BN_list, triplets = ER_extractor(doc)
+    now = datetime.now()
+
+    current_date = now.strftime("%d/%m/20%y")
+    BN_list, triplets = ER_extractor(doc, current_date)
     bn_verify = 1
     re_verify = 1
 
