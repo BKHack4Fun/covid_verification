@@ -6,7 +6,7 @@ import json
 from flask import Blueprint, request, render_template, url_for, redirect
 from flask import jsonify
 
-from db_services.neo4j_services import match_neo4jformat
+from db_services.neo4j_services import match_neo4jformat, update_graph
 from knowledge_graph.knowledge_graph_interact import verifyInfo
 
 index_api = Blueprint('index_api', __name__,
@@ -28,3 +28,13 @@ def visualization():
     data = match_neo4jformat()
 
     return data
+
+@index_api.route("/updateGraph", methods=['GET', 'POST'])
+def updateGraph():
+    content = request.json['content']
+    time= request.json['time']
+    link = request.json['link']
+    update_graph(content, time, link)
+
+    return "success"
+

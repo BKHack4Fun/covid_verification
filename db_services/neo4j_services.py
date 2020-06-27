@@ -174,7 +174,7 @@ def matchAll_d3format():
     return d3format
 
 
-def match_neo4jformat(query="MATCH (n:BN)-[r]-(m) RETURN n,r, m"):
+def match_neo4jformat(query="MATCH (n:BN)-[r]-(m) RETURN n,r, m limit 200"):
     match = graph.run(query).to_subgraph()
     nodes = []
     relastionships = []
