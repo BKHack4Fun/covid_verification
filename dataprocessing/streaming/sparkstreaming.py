@@ -3,35 +3,32 @@ Module process data with pyspark
 """
 
 import json
-
 import pyspark as ps
 from pyspark.streaming import StreamingContext
-
-# Create a local StreamingContext with two working thread and batch interval of 1 second
 from db_services.neo4j_services import update_graph
-from nlp.ERextractor import ER_extractor
 
 conf = ps.SparkConf().setMaster("local[*]").setAppName("StreamingCovid19")
-conf.set("spark.executor.heartbeatInterval", "3600s")
-conf.set("spark.network.timeout", "3700s")
-conf.set("spark.storage.blockManagerSlaveTimeoutMs", "3700s")
 sc = ps.SparkContext('local[*]', '', conf=conf)
-ssc = StreamingContext(sc, 30)
+ssc = StreamingContext(sc, 60)
 # Create a DStream that will connect to hostname:port, like localhost:9999
 # lines = ssc.socketTextStream("localhost", 9999)
 
-
-lines = ssc.textFileStream("E:/HUST/bigdata/covid_verification/dataprocessing/data")
+# lines = ssc.textFileStream("E:/HUST/bigdata/covid_verification/dataprocessing/data")
+lines = ssc.textFileStream("C:/Users/HoangNam/Documents/code/xproject/covid_verification/dataprocessing/streaming/data")
 
 
 def extractER(line):
-    js = json.loads(line)
-    print(js['content'])
-    update_graph(js['content'], js['time'], js["link"])
-    return ("add doc", 1)
+    article = json.loads(line)
+    return (article['content'], article['time'], article['link'])
 
 
-words = lines.flatMap(extractER)
+def batch_update_graph(triples):
+    for triple in triples:
+        update_graph(triple[0], triple[1], triple[2])
+
+
+words = lines.map(extractER)
+words.foreachRDD(lambda rdd: rdd.foreachPartition(batch_update_graph))
 words.pprint()
-ssc.start()  # Start the computation
-ssc.awaitTermination()  # Wait for the computation to terminate
+ssc.start() 
+ssc.awaitTermination()  

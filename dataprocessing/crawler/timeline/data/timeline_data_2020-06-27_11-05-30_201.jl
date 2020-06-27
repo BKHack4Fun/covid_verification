@@ -1,1 +1,0 @@
-{"time": "16:47 08/02/2020", "content": "Bộ Y tế tổ chức Hội nghị trực tuyến \"Triển khai Công tác Hướng dẫn điều trị, phòng, chống dịch bệnh viêm đường hô hấp cấp do Virus nCoV\" với 700 điểm cầu trên cả nước.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

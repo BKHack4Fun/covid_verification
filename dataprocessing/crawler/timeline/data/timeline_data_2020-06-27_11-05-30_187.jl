@@ -1,1 +1,0 @@
-{"time": "11:57 13/02/2020", "content": "Trưa 13/2, Bộ Y tế chính thức thông tin về trường hợp thứ 16 ở Việt Nam mắc bệnh do chủng mới của virus corona COVID-19 (nCov). Bệnh nhân là ông N.V.V, 50 tuổi, ở xã Sơn Lôi, Bình Xuyên, Vĩnh Phúc. Ông V là bố của chị N.T.D (23 tuổi, đã mắc COVID-19 và ra viện hôm 10/2).", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

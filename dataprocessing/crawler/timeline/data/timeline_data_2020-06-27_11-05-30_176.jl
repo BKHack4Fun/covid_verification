@@ -1,1 +1,0 @@
-{"time": "12:23 19/02/2020", "content": "Sở GD&ĐT Vĩnh Phúc vừa có văn bản thông báo cho học sinh các cấp học mầm non, phổ thông, hệ giáo dục thường xuyên, trung tâm ngoại ngữ, tin học trên địa bàn tỉnh được nghỉ học đến hết tháng 2/2020 để phòng chống COVID-19.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

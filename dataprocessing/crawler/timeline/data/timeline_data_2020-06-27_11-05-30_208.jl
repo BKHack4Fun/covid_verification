@@ -1,1 +1,0 @@
-{"time": "08:23 07/02/2020", "content": "Đến ngày 6/2, đã có 63 tỉnh/thành phố báo cáo Bộ GDĐT về việc quyết định cho học sinh nghỉ học để phòng dịch nCoV.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

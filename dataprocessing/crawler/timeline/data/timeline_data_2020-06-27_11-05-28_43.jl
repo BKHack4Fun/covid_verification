@@ -1,1 +1,0 @@
-{"time": "08:32 18/04/2020", "content": "Tới 6h sáng 18/4, tròn 48 tiếng,Việt Nam tiếp tục không ghi nhận ca mắc mới, hiện vẫn có 268 ca bệnh. Trong đó, 198 trường hợp đã được chữa khỏi (74%).", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

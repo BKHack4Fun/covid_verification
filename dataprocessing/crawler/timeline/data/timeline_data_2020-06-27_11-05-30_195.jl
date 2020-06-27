@@ -1,1 +1,0 @@
-{"time": "16:05 09/02/2020", "content": "Bệnh viện Việt Nam - Thuỵ Điển Uông Bí Quảng Ninh cho hay, tính đến 16h ngày 09/02/2020, Bệnh viện có tiếp nhận 9 trường hợp người bệnh nghi ngờ nhiễm nCoV. Trong đó 8/9 ca đã có kết quả âm tính, 1 trường hợp có yếu tố nghi ngờ đã được cách ly theo dõi.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

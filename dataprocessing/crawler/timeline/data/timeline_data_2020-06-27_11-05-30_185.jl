@@ -1,1 +1,0 @@
-{"time": "18:22 14/02/2020", "content": "Trước tình hình diễn biến phức tạp của dịch bệnh COVID-19, Bộ trưởng Bộ GD&ĐT Phùng Xuân Nhạ cho biết, sẽ lùi thời điểm kết thúc năm học để đảm bảo sức khỏe học sinh.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}
