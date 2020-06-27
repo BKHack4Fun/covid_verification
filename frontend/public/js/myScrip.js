@@ -1,6 +1,6 @@
 const API = {
-    checkReal: `http://192.168.43.150:8081/verify`,
-    getVisualize: `http://192.168.43.150:8081/visualization`
+    checkReal: `http://localhost:3333/verify`,
+    getVisualize: `http://localhost:3333/visualization`
     // getVisualize: `http://localhost:3001/visualize`
 }
 
