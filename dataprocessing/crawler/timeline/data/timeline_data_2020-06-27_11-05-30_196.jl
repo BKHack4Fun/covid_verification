@@ -1,1 +1,0 @@
-{"time": "13:33 10/02/2020", "content": "Vào lúc 13h chiều  ngày 10/2,  3 bệnh nhân mắc nCoV điều trị  tại  BV Bệnh nhiệt đới TW đã được xuất viện, nâng tổng số ca Việt Nam đã điều trị khỏi và cho xuất viện lên 6 trường hợp.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

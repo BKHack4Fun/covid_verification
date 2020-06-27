@@ -1,1 +1,0 @@
-{"time": "21:55 15/03/2020", "content": "THÔNG BÁO VỀ CA BỆNH 57: Bệnh nhân thứ 57 (BN57) 66 tuổi, nam, quốc tịch Anh, xuất phát từ London, nhập cảnh vào Việt Nam ngày 9/3 tại Nội Bài (cùng chuyến bay VN0054 với BN46 - tiếp viên Vietnam Airlines). BN57 hiện được điều trị cách ly tại Quảng Nam.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

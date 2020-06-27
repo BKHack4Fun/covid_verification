@@ -1,1 +1,0 @@
-{"time": "17:01 18/02/2020", "content": "Chiều 18/2, tại khu điều trị Phòng khám đa khoa khu vực Quang Hà (Bình Xuyên - Vĩnh Phúc), 2 bệnh nhân nhiễm COVID-19 đã khỏi bệnh và tiếp tục theo dõi sức khỏe.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

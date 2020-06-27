@@ -1,1 +1,0 @@
-{"time": "17:00 22/04/2020", "content": "223/268 CA COVID-19 Ở VIỆT NAM KHỎI BỆNH: Trong ngày 22/4, tính đến 15h, đã có thêm 7 ca mắc COVID-19 được công bố khỏi bệnh, trong đó 4 ca có liên quan đến BV Bạch Mai, gồm: BN184, BN215, BN216, BN227, BN246, BN266, BN252. Như vậy, cả nước chỉ còn 45 ca đang điều trị.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

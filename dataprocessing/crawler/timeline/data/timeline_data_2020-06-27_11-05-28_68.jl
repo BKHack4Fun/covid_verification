@@ -1,1 +1,0 @@
-{"time": "17:55 05/04/2020", "content": "THÔNG BÁO VỀ CA BỆNH 241 (BN241): Bệnh nhân nam, 20 tuổi, ở phường Thảo Điền, quận 2, TP.HCM, là du học sinh tại Anh. Ngày 21/3, bệnh nhân từ London lên chuyến bay của Vietnam Airlines số hiệu VN0050, số ghế 5A, về tới sân bay Cần Thơ ngày 22/3.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

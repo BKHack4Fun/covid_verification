@@ -1,1 +1,0 @@
-{"time": "19:20 06/02/2020", "content": "Bộ Y tế vừa thông báo thêm 2 trường hợp dương tính với nCoV, nâng tổng số ca dương tính với nCoV tại Việt Nam lên 12 người.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

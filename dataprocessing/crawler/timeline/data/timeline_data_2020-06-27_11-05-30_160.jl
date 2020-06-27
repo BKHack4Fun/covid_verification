@@ -1,1 +1,0 @@
-{"time": "21:26 27/02/2020", "content": "Bộ GD&ĐT vừa có văn bản đề nghị chủ tịch UBND các tỉnh, thành xem xét cho học sinh mầm non, tiểu học, THCS nghỉ học thêm 2 tuần phòng dịch COVID-19, học sinh THPT, học viên giáo dục thường xuyên đi học từ 2/3.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

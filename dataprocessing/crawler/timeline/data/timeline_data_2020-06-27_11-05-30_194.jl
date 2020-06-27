@@ -1,1 +1,0 @@
-{"time": "15:01 09/02/2020", "content": "Hai người nước ngoài (gồm 01 người Trung Quốc và 01 người Mỹ gốc Việt) đang điều trị bệnh nCoV ở TP.HCM hiện có tình trạng sức khỏe tiến triển tốt.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

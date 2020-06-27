@@ -1,1 +1,0 @@
-{"time": "11:32 07/03/2020", "content": "25 trường hợp tiếp xúc gần với ca nhiễm COVID-19 đầu tiên tại Hà Nội đã có kết quả xét nghiệm âm tính. Hà Nội cũng đã lập danh sách 90 người tiếp xúc gần với người tiếp xúc gần.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

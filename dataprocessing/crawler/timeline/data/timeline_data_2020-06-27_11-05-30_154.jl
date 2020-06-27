@@ -1,1 +1,0 @@
-{"time": "03:16 04/03/2020", "content": "Sau 21 ngày thực hiện nghiêm túc lệnh phong tỏa cách ly, không để xuất hiện thêm ca nhiễm COVID-19 mới, vào lúc 0h giờ ngày 4/3, xã Sơn Lôi (Bình Xuyên, Vĩnh Phúc) chính thức hết thời hạn cách ly, dỡ bỏ phong toả.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

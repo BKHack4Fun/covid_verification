@@ -1,1 +1,0 @@
-{"time": "13:47 10/03/2020", "content": "THÔNG BÁO VỀ CA BỆNH SỐ 32: Bệnh nhân là nữ, 24 tuổi, quốc tịch Việt Nam. Tối 27/2, tại London (Anh), bệnh nhân có tiếp xúc ca bệnh thứ 17 (BN17). BN32 đã trở về Việt Nam ngày 9/3.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

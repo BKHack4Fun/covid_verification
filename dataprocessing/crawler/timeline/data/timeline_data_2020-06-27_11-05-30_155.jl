@@ -1,1 +1,0 @@
-{"time": "12:56 01/03/2020", "content": "Tất cả người nhập cảnh từ các quốc gia đang có dịch (Trung Quốc, Hàn Quốc, Italia, Iran) phải thực hiện việc khai báo y tế và kiểm dịch y tế tại cửa khẩu. Những người có dấu hiệu sốt, ho, khó thở cần được chuyển ngay tới các cơ sở y tế để cách ly.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

@@ -1,1 +1,0 @@
-{"time": "19:59 06/02/2020", "content": "TS.BS Nguyễn Văn Định, Giám đốc Trung tâm Kiểm soát bệnh tật tỉnh Nghệ An cho biết, mẫu bệnh phẩm của 1 bệnh nhân ở huyện Tân Kỳ gửi ra Viện Vệ sinh Dịch tể Trung ương đã có kết quả xét nghiệm âm tính với virus Corona.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

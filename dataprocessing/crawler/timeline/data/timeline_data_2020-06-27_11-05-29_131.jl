@@ -1,1 +1,0 @@
-{"time": "07:09 12/03/2020", "content": "Ngày 11/3 (tối 11/3 theo giờ Việt Nam), Tổ chức Y tế Thế giới đã chính thức tuyên bố sự bùng phát của dịch viêm đường hô hấp cấp (COVID-19) do chủng mới của virus corona (SARS-CoV-2) là đại dịch toàn cầu.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}

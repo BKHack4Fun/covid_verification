@@ -1,1 +1,0 @@
-{"time": "14:49 07/02/2020", "content": "Viện vệ sinh dịch tễ Trung ương cho biết đã nuôi cấy và phân lập thành công virus corona mới trong phòng thí nghiệm.", "link": "https://ncov.moh.gov.vn/web/guest/dong-thoi-gian"}
