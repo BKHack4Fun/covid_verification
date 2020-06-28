@@ -9941,7 +9941,7 @@ a:focus {
 }
 
 .topbar {
-  height: 4.375rem;
+  height: 7.375rem;
 }
 
 .topbar #sidebarToggleTop {
@@ -9969,7 +9969,7 @@ a:focus {
 }
 .topbar .navbar-search {
 
-  width: 25rem;
+  /* width: 25rem; */
 }
 
 .topbar .navbar-search input {
