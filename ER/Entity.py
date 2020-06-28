@@ -1,3 +1,4 @@
 class Entity:
     label = ''
     name = ''
+

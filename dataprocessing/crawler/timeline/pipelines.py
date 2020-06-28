@@ -5,12 +5,6 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 
-
-class TimelinePipeline:
-    def process_item(self, item, spider):
-        return item
-
-
 import json
 from datetime import datetime
 class StopIfSeeDuplicate:
@@ -36,7 +30,6 @@ class StopIfSeeDuplicate:
             
         if item_time <= self.last_time:
             spider.crawler.engine.close_spider(self, reason='duplicate...')
-
 
 from scrapy.exporters import JsonLinesItemExporter
 class JsonWriterPipeline:
