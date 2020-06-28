@@ -11,6 +11,7 @@ body {
 .neo4jd3-graph {
   border: 1px solid #ddd;
   border-radius: 5px;
+  background-color:rgba(136, 136, 136, 0.575);
   height: 100%;
 }
 .neo4jd3-container{
@@ -89,6 +90,9 @@ body {
 .relationship {
   cursor: default;
 }
+.relationship text:hover{
+  color: white;
+}
 .relationship line {
   stroke: #aaa;
 }
@@ -105,7 +109,16 @@ body {
 .relationship text {
   cursor: default;
 }
-
+#triangle{
+  fill: white;
+  font-size: 4rem;
+}
+.link {
+  stroke: white;
+  stroke-opacity: 0.6;
+  fill: none;
+  stroke-width: 2px;
+} 
 .relationship.selected .overlay,
 .relationship:hover .overlay {
   -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)';

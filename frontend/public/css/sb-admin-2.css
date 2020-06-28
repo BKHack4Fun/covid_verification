@@ -6476,9 +6476,13 @@ button.bg-dark:focus {
     display: table-cell !important;
   }
   .d-sm-flex {
+    justify-content: center;
     background-color: white;
     height: 5rem;
     display: flex !important;
+  }
+  .d-sm-flex h1{
+    margin: auto;
   }
   .d-sm-inline-flex {
     display: inline-flex !important;
