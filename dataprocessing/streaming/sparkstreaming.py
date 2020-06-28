@@ -13,8 +13,8 @@ ssc = StreamingContext(sc, 60)
 # Create a DStream that will connect to hostname:port, like localhost:9999
 # lines = ssc.socketTextStream("localhost", 9999)
 
-# lines = ssc.textFileStream("E:/HUST/bigdata/covid_verification/dataprocessing/data")
-lines = ssc.textFileStream("C:/Users/HoangNam/Documents/code/xproject/covid_verification/dataprocessing/streaming/data")
+lines = ssc.textFileStream("E:/HUST/bigdata/covid_verification/dataprocessing/data")
+# lines = ssc.textFileStream("C:/Users/HoangNam/Documents/code/xproject/covid_verification/dataprocessing/streaming/data")
 
 
 def extractER(line):

@@ -5,7 +5,7 @@ Module for the configurations of system
 
 
 class Neo4jConfig:
-    bolt = "bolt://localhost:7687"
+    bolt = "bolt://localhost:11003"
     username = "thanh"
     password = "thanh"
 
@@ -22,8 +22,8 @@ class ElasticSearchConfig:
 
 
 class NLPConfig:
-    model_path = "C:/Users/HoangNam/Documents/code/xproject/covid_verification/nlp/model/"
-    data_path = "C:/Users/HoangNam/Documents/code/xproject/covid_verification/covid_verification/nlp/data/"
-    # model_path = "E:/HUST/bigdata/covid_verification/nlp/model/"
-    # data_path = "E:/HUST/bigdata/covid_verification/nlp/data/"
+    # model_path = "C:/Users/HoangNam/Documents/code/xproject/covid_verification/nlp/model/"
+    # data_path = "C:/Users/HoangNam/Documents/code/xproject/covid_verification/covid_verification/nlp/data/"
+    model_path = "E:/HUST/bigdata/covid_verification/nlp/model/"
+    data_path = "E:/HUST/bigdata/covid_verification/nlp/data/"
 

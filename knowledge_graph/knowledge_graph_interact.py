@@ -62,7 +62,10 @@ def verifyInfo(doc):
     if bn_verify == 0:
         verify = 0
     else:
-        verify = re_verify
+        if re_verify == 2:
+            verify = 1
+        else:
+            verify = re_verify
 
     visualization = involve_info(patients, relationships, entities)
     data = {
