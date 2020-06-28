@@ -1424,7 +1424,7 @@
                     };
                 }
 
-                /*
+                
                     function smoothTransform(elem, translate, scale) {
                         var animationMilliseconds = 5000,
                             timeoutMilliseconds = 50,
@@ -1446,7 +1446,7 @@
                             }, timeoutMilliseconds);
                         }
                     }
-                */
+                
                 function stickNode(d) {
                     d.fx = d3.event.x;
                     d.fy = d3.event.y;
